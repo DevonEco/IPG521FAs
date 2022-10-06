@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "Locations";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Map</title>
+
+    <style type="text/css">
+        /* Set the size of the div element that contains the map */
+        #map {
+            height: 600px;
+            /* The height is 400 pixels */
+            width: 100%;
+            /* The width is the width of the web page */
+        }
+    </style>
+    <script>
+        // Initialize and add the map
+        function initMap() {
+            // The locations
+            const Dallas = { lat: 32.77556623526601, lng: -96.79473373194452 }; 
+            const TitanComics = { lat: 32.90897704573028, lng: -96.86969756561578 }; 
+            const ComicAsylum = { lat: 32.95860221808927, lng: -96.68313710234973 };
+            const KeithsComicsInc = { lat: 32.95427616343517, lng: -96.60829334859368 };
+            const CBCSComics = { lat: 32.81235163435006, lng: - 96.8366192162839 }; 
+            const DuncanvilleBookstore = { lat: 32.677781568706564,lng: - 96.88310623958472 };
+            // The map, centered
+            const map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 10,
+                center: Dallas,
+            });
+            // The marker, positioned
+            const marker = new google.maps.Marker({
+                position: TitanComics,
+                map: map,
+            });
+            const marker1 = new google.maps.Marker({
+                position: ComicAsylum,
+                map: map,
+            });
+            const marker2 = new google.maps.Marker({
+                position: KeithsComicsInc,
+                map: map,
+            });
+            const marker3 = new google.maps.Marker({
+                position: CBCSComics,
+                map: map,
+            });
+            const marker4 = new google.maps.Marker({
+                position: DuncanvilleBookstore,
+                map: map,
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="jumbotron" style="background-color:black" >
+        <h2 style="text-align:center; color:white;">Location</h2>
+        <h3 style="text-align:center; color:white;">Visit the store closest to you and pick up your Favorite Comic:</h3>
+        <!--The div element for the map -->
+        <div id="map"></div>
+
+        <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCEd6ObeFIl1VNuWjRVnIjBJV7n6b9lXM&callback=initMap&libraries=&v=weekly"
+                async></script>
+    </div>    
+</body>
+</html>
